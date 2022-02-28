@@ -5,11 +5,12 @@ namespace LOK1game.Weapon
     [CreateAssetMenu(fileName = "new GunData", menuName = "GunData")]
     public class GunData : ScriptableObject
     {
-        public int Damage;
-        public float ShootDistance = 1000f;
+        public int Damage = 20;
+        public float StartBulletForce = 80f;
         public int BulletsPerShoot = 6;
         public float FireRate = 0.2f;
-        public float StartBulletForce = 80f;
+        public float ShootDistance = 1000f;
+        public GunBurstMode BurstMode;
 
         [Space]
         public float Bloom = 25;
@@ -21,7 +22,14 @@ namespace LOK1game.Weapon
 
         [Space]
         public Projectile ProjectilePrefab;
-        public GameObject GunPrefab;
+        public BaseGun GunPrefab;
         public GameObject ShellPrefab;
+    }
+
+    public enum GunBurstMode
+    {
+        Semi,
+        Auto,
+        Burst
     }
 }

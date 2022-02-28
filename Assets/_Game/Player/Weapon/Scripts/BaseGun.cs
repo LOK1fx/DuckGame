@@ -19,6 +19,8 @@ namespace LOK1game.Weapon
 
         public abstract void Shoot(Player.Player player);
 
+        public abstract void Equip(Player.Player player);
+
         protected Vector3 GetBloom(Transform playerCamera)
         {
             var bloom = playerCamera.position + playerCamera.forward * data.ShootDistance;

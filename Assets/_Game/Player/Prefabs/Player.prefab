@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2639441561070333289}
   - component: {fileID: 7250010309612696274}
   - component: {fileID: 8745851072079396820}
+  - component: {fileID: 6333072809131031989}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -45,8 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85c026824c6827649b6d2ac43395cbb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startGun: {fileID: 11400000, guid: ad64310df685f67448d5b8b5baf6ee30, type: 2}
-  _gunHolder: {fileID: 2639441562329254615}
 --- !u!114 &8745851072079396820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,6 +65,21 @@ MonoBehaviour:
   _maxLeftViewAngle: 80
   _maxUpViewAngle: 80
   _maxDownViewAngle: 80
+--- !u!114 &6333072809131031989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2639441561070333288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4540788b2f375c4aaa6ff08772dc273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WeaponInventory:
+  - {fileID: 11400000, guid: ad64310df685f67448d5b8b5baf6ee30, type: 2}
+  _gunHolder: {fileID: 2639441562329254615}
 --- !u!1 &2639441562097676138
 GameObject:
   m_ObjectHideFlags: 0

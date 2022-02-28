@@ -5,9 +5,15 @@ namespace LOK1game.Weapon
 {
     public class Gun : BaseGun
     {
-        public UnityEvent OnShoot;
+        public event UnityAction OnShoot;
+        public event UnityAction OnEquip;
 
         private float _timeToNextShoot;
+
+        public override void Equip(Player.Player player)
+        {
+            OnEquip?.Invoke();
+        }
 
         public override void Shoot(Player.Player player)
         {

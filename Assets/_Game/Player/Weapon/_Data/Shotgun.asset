@@ -13,15 +13,16 @@ MonoBehaviour:
   m_Name: Shotgun
   m_EditorClassIdentifier: 
   Damage: 4
-  ShootDistance: 1000
-  BulletsPerShoot: 6
-  FireRate: 0.1
   StartBulletForce: 220
+  BulletsPerShoot: 6
+  FireRate: 3
+  ShootDistance: 1000
+  BurstMode: 0
   Bloom: 12
   BloomXMultiplier: 1
   BloomYMultiplier: 0.4
   ProjectilePrefab: {fileID: 5683537475582720638, guid: 847c12c2102d4674895c21308ea5bb65,
     type: 3}
-  GunPrefab: {fileID: 3202681583651199018, guid: fc61368c41981014ea9529d641cdd769,
+  GunPrefab: {fileID: 7562563012524083725, guid: fc61368c41981014ea9529d641cdd769,
     type: 3}
   ShellPrefab: {fileID: 0}

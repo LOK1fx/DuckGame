@@ -16,12 +16,8 @@ namespace LOK1game.Weapon
             _gun = GetComponent<Gun>();
             _animator = GetComponent<Animator>();
 
-            _gun.OnShoot.AddListener(OnShoot);
-        }
-
-        private void Start()
-        {
-            _animator.SetTrigger(TRIGGER_EQUIP);
+            _gun.OnShoot += OnShoot;
+            _gun.OnEquip += OnEquip;
         }
 
         private void OnShoot()
@@ -29,9 +25,16 @@ namespace LOK1game.Weapon
             _animator.SetTrigger(TRIGGER_SHOOT);
         }
 
+        private void OnEquip()
+        {
+            _animator.SetTrigger(TRIGGER_EQUIP);
+        }
+
+
         private void OnDestroy()
         {
-            _gun.OnShoot.RemoveListener(OnShoot);
+            _gun.OnShoot -= OnShoot;
+            _gun.OnEquip -= OnEquip;
         }
     }
 }
