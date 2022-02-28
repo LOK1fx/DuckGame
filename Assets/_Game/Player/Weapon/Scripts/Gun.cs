@@ -7,24 +7,31 @@ namespace LOK1game.Weapon
     {
         public UnityEvent OnShoot;
 
+        private float _timeToNextShoot;
+
         public override void Shoot(Player.Player player)
         {
-            for (int i = 0; i < data.BulletsPerShoot; i++)
+            if (Time.time > _timeToNextShoot)
             {
-                var camera = player.PlayerCamera.GetCameraTransform();
-                var projectile = Instantiate(data.ProjectilePrefab, muzzleTransform.position, Quaternion.identity);
-                var direction = camera.forward;
+                _timeToNextShoot = Time.time + 1f / data.FireRate;
 
-                if(i != 0)
+                for (int i = 0; i < data.BulletsPerShoot; i++)
                 {
-                    direction += GetBloom(camera);
+                    var camera = player.PlayerCamera.GetCameraTransform();
+                    var projectile = Instantiate(data.ProjectilePrefab, muzzleTransform.position, Quaternion.identity);
+                    var direction = camera.forward;
+
+                    if (i != 0)
+                    {
+                        direction += GetBloom(camera);
+                    }
+
+                    var damage = new Damage(data.Damage, player);
+
+                    projectile.Shoot(direction, data.StartBulletForce, damage);
+
+                    OnShoot?.Invoke();
                 }
-
-                var damage = new Damage(data.Damage, player);
-
-                projectile.Shoot(direction, data.StartBulletForce, damage);
-
-                OnShoot?.Invoke();
             }
         }
     }
