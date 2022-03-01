@@ -1,4 +1,3 @@
-using LOK1game.Weapon;
 using UnityEngine;
 
 namespace LOK1game.Player
@@ -18,6 +17,15 @@ namespace LOK1game.Player
         {
             //test
             OnInput(this);
+
+            if(PlayerWeapon.InAds)
+            {
+                PlayerCamera.SmoothSetFov(45);
+            }
+            else
+            {
+                PlayerCamera.SmoothSetFov(PlayerCamera.GetDefaultFov());
+            }
         }
 
         public void OnInput(object sender)

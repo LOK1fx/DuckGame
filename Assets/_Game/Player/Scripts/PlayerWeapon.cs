@@ -9,6 +9,13 @@ namespace LOK1game.Player
     public class PlayerWeapon : MonoBehaviour
     {
         public GunData CurrentGun { get; private set; }
+        public bool InAds
+        {
+            get
+            {
+                return _currentGunObject.InADS;
+            }
+        }
 
         public List<GunData> WeaponInventory = new List<GunData>();
 

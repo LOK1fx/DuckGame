@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39f8c4668cfb672429f4b4e07bbfc74f, type: 3}
-  m_Name: Shotgun
+  m_Name: FirstShotgun
   m_EditorClassIdentifier: 
   Damage: 4
-  StartBulletForce: 220
+  StartBulletForce: 400
   BulletsPerShoot: 6
   FireRate: 3
   ShootDistance: 1000
   BurstMode: 0
-  Bloom: 12
+  Bloom: 6
   BloomXMultiplier: 1
-  BloomYMultiplier: 0.4
+  BloomYMultiplier: 0.6
   ProjectilePrefab: {fileID: 5683537475582720638, guid: 847c12c2102d4674895c21308ea5bb65,
     type: 3}
-  GunPrefab: {fileID: 7562563012524083725, guid: fc61368c41981014ea9529d641cdd769,
+  GunPrefab: {fileID: 5429283703242786059, guid: 18d7f30a888c55b45b56582db91a380c,
     type: 3}
   ShellPrefab: {fileID: 0}

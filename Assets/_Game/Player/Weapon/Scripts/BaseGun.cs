@@ -4,10 +4,13 @@ namespace LOK1game.Weapon
 {
     public abstract class BaseGun : MonoBehaviour, IUsable
     {
+        public bool InADS { get; protected set; }
+
         [SerializeField] protected GunData data;
 
         [Space]
         [SerializeField] protected Transform muzzleTransform;
+        [SerializeField] protected Transform sightTransform;
 
         public void Use(object sender)
         {

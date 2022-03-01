@@ -60,11 +60,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tilt: 0
   _sensivity: 50
+  _camera: {fileID: 2639441562249833007}
   _cameraTransform: {fileID: 2639441562097676139}
   _maxRightViewAngle: 80
   _maxLeftViewAngle: 80
   _maxUpViewAngle: 80
   _maxDownViewAngle: 80
+  _defaultFov: 65
+  _fovChangeSpeed: 150
 --- !u!114 &6333072809131031989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,7 +81,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponInventory:
-  - {fileID: 11400000, guid: ad64310df685f67448d5b8b5baf6ee30, type: 2}
+  - {fileID: 11400000, guid: 9d11fc9125920ba4a93d450b3295b2b0, type: 2}
   _gunHolder: {fileID: 2639441562329254615}
 --- !u!1 &2639441562097676138
 GameObject:
