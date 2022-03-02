@@ -62,8 +62,8 @@ MonoBehaviour:
   _sensivity: 50
   _camera: {fileID: 2639441562249833007}
   _cameraTransform: {fileID: 2639441562097676139}
-  _maxRightViewAngle: 80
-  _maxLeftViewAngle: 80
+  _maxRightViewAngle: 360
+  _maxLeftViewAngle: 360
   _maxUpViewAngle: 80
   _maxDownViewAngle: 80
   _defaultFov: 65
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 7649121995623970657}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

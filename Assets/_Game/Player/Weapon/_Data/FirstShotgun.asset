@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39f8c4668cfb672429f4b4e07bbfc74f, type: 3}
   m_Name: FirstShotgun
   m_EditorClassIdentifier: 
-  Damage: 4
+  Damage: 10
   StartBulletForce: 400
   BulletsPerShoot: 6
   FireRate: 3
-  ShootDistance: 1000
+  ShootDistance: 550
   BurstMode: 0
   Bloom: 6
   BloomXMultiplier: 1

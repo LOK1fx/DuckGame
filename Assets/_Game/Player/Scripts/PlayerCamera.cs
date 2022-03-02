@@ -58,6 +58,21 @@ namespace LOK1game.Player
 
             _xRotation = Mathf.Clamp(_xRotation, -_maxLeftViewAngle, _maxRightViewAngle);
             _yRotation = Mathf.Clamp(_yRotation, -_maxUpViewAngle, _maxDownViewAngle);
+
+            _xRotation = ThreehoundredToZero(_xRotation);
+            _yRotation = ThreehoundredToZero(_yRotation);
+        }
+
+        private float ThreehoundredToZero(float value)
+        {
+            if(value >= 360 || value <= -360)
+            {
+                return 0f;
+            }
+            else
+            {
+                return value;
+            }
         }
 
         public Transform GetCameraTransform()

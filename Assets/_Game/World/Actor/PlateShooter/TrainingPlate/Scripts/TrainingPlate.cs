@@ -13,9 +13,21 @@ namespace LOK1game.World
 
         private Rigidbody _rigidbody;
 
+#if UNITY_EDITOR
+
+        private BoxCollider _collider;
+
+#endif
+
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
+
+#if UNITY_EDITOR
+
+            _collider = GetComponent<BoxCollider>();
+
+#endif
 
             Destroy(gameObject, _lifeTime);
         }
@@ -40,5 +52,16 @@ namespace LOK1game.World
             Destroy(fx.gameObject, 2f);
             Destroy(gameObject);
         }
+
+#if UNITY_EDITOR
+
+        private void OnDrawGizmos()
+        {
+            var pos = transform.position + _rigidbody.velocity;
+
+            Gizmos.DrawCube(pos, _collider.size);
+        }
+
+#endif
     }
 }

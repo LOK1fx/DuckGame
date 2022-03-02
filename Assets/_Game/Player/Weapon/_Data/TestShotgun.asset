@@ -16,7 +16,7 @@ MonoBehaviour:
   StartBulletForce: 400
   BulletsPerShoot: 6
   FireRate: 3
-  ShootDistance: 1000
+  ShootDistance: 700
   BurstMode: 0
   Bloom: 6
   BloomXMultiplier: 1

@@ -1,19 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace LOK1game
 {
-    [RequireComponent(typeof(Health))]
+    [RequireComponent(typeof(Health), typeof(DuckMovement))]
     public class Duck : Actor, IDamagable
     {
-        public UnityEvent OnDie;
+        public UnityAction OnDie;
+
+        public DuckMovement DuckMovement { get; private set; }
 
         private Health _health;
 
         private void Awake()
         {
+            DuckMovement = GetComponent<DuckMovement>();
             _health = GetComponent<Health>();
         }
 

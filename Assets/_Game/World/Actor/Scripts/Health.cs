@@ -5,7 +5,7 @@ namespace LOK1game
 {
     public class Health : MonoBehaviour
     {
-        public UnityEvent<int> OnHealthChanged;
+        public UnityAction<int> OnHealthChanged;
 
         public int MaxHp { get; private set; }
         public int Hp { get; private set; }

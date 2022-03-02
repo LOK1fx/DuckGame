@@ -9,6 +9,7 @@ namespace LOK1game.Weapon
         public event UnityAction OnEquip;
 
         [Space]
+        [SerializeField] private bool _shootsFromMuzzle = true;
         [SerializeField] private float _adsSpeed = 8f;
         [SerializeField] private Vector3 _adsGunPositon;
 
@@ -56,7 +57,14 @@ namespace LOK1game.Weapon
                 for (int i = 0; i < data.BulletsPerShoot; i++)
                 {
                     var camera = player.PlayerCamera.GetCameraTransform();
-                    var projectile = Instantiate(data.ProjectilePrefab, camera.position, Quaternion.identity);
+                    var projectilePos = muzzleTransform.position;
+
+                    if(!_shootsFromMuzzle)
+                    {
+                        projectilePos = camera.position;
+                    }
+
+                    var projectile = Instantiate(data.ProjectilePrefab, projectilePos, Quaternion.identity);
                     var direction = camera.forward;
 
                     if (i != 0)
