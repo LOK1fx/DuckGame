@@ -825,6 +825,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _platePrefab: {fileID: 4358413269088310965, guid: 0c07216e9d8c45945ab855f9d4c79ced,
     type: 3}
-  _launchForce: 70
+  _launchForce: 60
   _fireRate: 1
   _firePoint: {fileID: 86860457475024816}

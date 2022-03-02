@@ -12,7 +12,7 @@ namespace UnityStandardAssets.Water
 
         public void Start()
         {
-            AcquireComponents();
+            //AcquireComponents();
         }
 
 

@@ -20,6 +20,10 @@ namespace LOK1game.Weapon
         [Range(0.1f, 25f)]
         public float BloomYMultiplier = 1f;
 
+        [Header("Recoil")]
+        public float ShootFovChange = 0.4f;
+        public Vector3 ShotCameraOffset;
+
         [Space]
         public Projectile ProjectilePrefab;
         public BaseGun GunPrefab;

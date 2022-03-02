@@ -1,25 +1,28 @@
 using LOK1game.Weapon;
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace LOK1game.Player
 {
     [RequireComponent(typeof(Player))]
-    public class PlayerWeapon : MonoBehaviour
+    public class PlayerWeapon : MonoBehaviour, IPawnInput
     {
+        public event Action<Gun> OnEquip;
+        public event Action<Gun> OnDequip;
+
         public GunData CurrentGun { get; private set; }
+        public Gun CurrentGunObject { get; private set; }
+
         public bool InAds
         {
             get
             {
-                return _currentGunObject.InADS;
+                return CurrentGunObject.InADS;
             }
         }
 
         public List<GunData> WeaponInventory = new List<GunData>();
-
-        private BaseGun _currentGunObject;
 
         [SerializeField] private Transform _gunHolder;
 
@@ -30,38 +33,53 @@ namespace LOK1game.Player
             _player = GetComponent<Player>();
 
             Equip(WeaponInventory[0]);
+
+            PlayerHudMobileInputManager.OnShootButtonClicked += Shoot;
         }
 
-        private void Update()
+        public void OnInput(object sender)
         {
+#if !UNITY_ANDROID
+
             switch (CurrentGun.BurstMode)
             {
                 case GunBurstMode.Semi:
-                    if(Input.GetButtonDown("Fire1"))
+                    if (Input.GetButtonDown("Fire1"))
                     {
-                        _currentGunObject.Shoot(_player);
+                        Shoot();
                     }
                     break;
                 case GunBurstMode.Auto:
                     if (Input.GetButton("Fire1"))
                     {
-                        _currentGunObject.Shoot(_player);
+                        Shoot();
                     }
                     break;
             }
+
+#endif
+        }
+
+        public void Shoot()
+        {
+            CurrentGunObject.Shoot(_player);
         }
 
         public void Equip(GunData gunData)
         {
-            if(_currentGunObject != null)
+            if(CurrentGunObject != null)
             {
-                Destroy(_currentGunObject);
+                OnDequip?.Invoke(CurrentGunObject);
+
+                Destroy(CurrentGunObject);
             }
 
             CurrentGun = gunData;
 
-            _currentGunObject = Instantiate(gunData.GunPrefab, _gunHolder);
-            _currentGunObject.GetComponent<Gun>().Equip(_player);
+            CurrentGunObject = (Gun)Instantiate(gunData.GunPrefab, _gunHolder);
+            CurrentGunObject.GetComponent<Gun>().Equip(_player);
+
+            OnEquip?.Invoke(CurrentGunObject);
         }
     }
 }

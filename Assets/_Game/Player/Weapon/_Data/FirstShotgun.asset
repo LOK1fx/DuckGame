@@ -14,13 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 10
   StartBulletForce: 400
-  BulletsPerShoot: 6
+  BulletsPerShoot: 5
   FireRate: 3
   ShootDistance: 550
   BurstMode: 0
   Bloom: 6
   BloomXMultiplier: 1
   BloomYMultiplier: 0.6
+  ShootFovChange: 0.5
+  ShotCameraOffset: {x: 0, y: -0.01, z: -0.02}
   ProjectilePrefab: {fileID: 5683537475582720638, guid: 847c12c2102d4674895c21308ea5bb65,
     type: 3}
   GunPrefab: {fileID: 5429283703242786059, guid: 18d7f30a888c55b45b56582db91a380c,

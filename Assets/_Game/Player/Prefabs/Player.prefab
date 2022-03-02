@@ -66,8 +66,9 @@ MonoBehaviour:
   _maxLeftViewAngle: 360
   _maxUpViewAngle: 80
   _maxDownViewAngle: 80
-  _defaultFov: 65
+  _defaultFov: 60
   _fovChangeSpeed: 150
+  _cameraOffsetResetSpeed: 1
 --- !u!114 &6333072809131031989
 MonoBehaviour:
   m_ObjectHideFlags: 0

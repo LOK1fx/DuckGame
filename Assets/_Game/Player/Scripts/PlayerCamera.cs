@@ -22,6 +22,10 @@ namespace LOK1game.Player
         [SerializeField] private float _defaultFov = 65f;
         [SerializeField] private float _fovChangeSpeed = 1f;
 
+        [SerializeField] private float _cameraOffsetResetSpeed = 7f;
+
+        private Vector3 _cameraLerpOffset;
+
         private float _xRotation;
         private float _yRotation;
 
@@ -36,6 +40,8 @@ namespace LOK1game.Player
         private void Update()
         {
             _cameraTransform.localRotation = Quaternion.Euler(_yRotation, _xRotation, Tilt);
+            _camera.transform.localPosition = Vector3.MoveTowards(_camera.transform.localPosition, _cameraLerpOffset, Time.deltaTime * _cameraOffsetResetSpeed);
+            _cameraLerpOffset = Vector3.MoveTowards(_cameraLerpOffset, Vector3.zero, Time.deltaTime * _cameraOffsetResetSpeed);
         }
 
         public void SmoothSetFov(float fov)
@@ -50,6 +56,17 @@ namespace LOK1game.Player
 
         public void OnInput(object sender)
         {
+            if(Input.touchCount >= 1)
+            {
+                foreach (var touch in Input.touches)
+                {
+                    if (touch.rawPosition.x < (Screen.currentResolution.width / 2))
+                    {
+                        return;
+                    }
+                }
+            }
+
             var x = Input.GetAxis("Mouse X");
             var y = Input.GetAxis("Mouse Y");
 
@@ -75,6 +92,11 @@ namespace LOK1game.Player
             }
         }
 
+        public void AddCameraOffset(Vector3 offset)
+        {
+            _cameraLerpOffset += offset;
+        }
+
         public Transform GetCameraTransform()
         {
             return _cameraTransform;
@@ -88,6 +110,11 @@ namespace LOK1game.Player
         public float GetDefaultFov()
         {
             return _defaultFov;
+        }
+
+        public float GetCurrentFov()
+        {
+            return _camera.fieldOfView;
         }
     }
 }

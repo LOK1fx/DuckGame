@@ -17,6 +17,20 @@ namespace UnityStandardAssets.Water
         public WaterQuality waterQuality = WaterQuality.High;
         public bool edgeBlend = true;
 
+        private Camera _camera;
+
+        private void Start()
+        {
+            _camera = GetComponent<Camera>();
+        }
+
+        private void Update()
+        {
+            if (sharedMaterial)
+            {
+                UpdateShader();
+            }
+        }
 
         public void UpdateShader()
         {
@@ -40,20 +54,23 @@ namespace UnityStandardAssets.Water
                 edgeBlend = false;
             }
 
-            if (edgeBlend)
+            if(_camera)
             {
-                Shader.EnableKeyword("WATER_EDGEBLEND_ON");
-                Shader.DisableKeyword("WATER_EDGEBLEND_OFF");
-                // just to make sure (some peeps might forget to add a water tile to the patches)
-                if (Camera.main)
+                if (edgeBlend)
                 {
-                    Camera.main.depthTextureMode |= DepthTextureMode.Depth;
+                    Shader.EnableKeyword("WATER_EDGEBLEND_ON");
+                    Shader.DisableKeyword("WATER_EDGEBLEND_OFF");
+                    // just to make sure (some peeps might forget to add a water tile to the patches)
+                    if (_camera)
+                    {
+                        _camera.depthTextureMode |= DepthTextureMode.Depth;
+                    }
                 }
-            }
-            else
-            {
-                Shader.EnableKeyword("WATER_EDGEBLEND_OFF");
-                Shader.DisableKeyword("WATER_EDGEBLEND_ON");
+                else
+                {
+                    Shader.EnableKeyword("WATER_EDGEBLEND_OFF");
+                    Shader.DisableKeyword("WATER_EDGEBLEND_ON");
+                }
             }
         }
 
@@ -63,15 +80,6 @@ namespace UnityStandardAssets.Water
             if (currentCam && edgeBlend)
             {
                 currentCam.depthTextureMode |= DepthTextureMode.Depth;
-            }
-        }
-
-
-        public void Update()
-        {
-            if (sharedMaterial)
-            {
-                UpdateShader();
             }
         }
     }
