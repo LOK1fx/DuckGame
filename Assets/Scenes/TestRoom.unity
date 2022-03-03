@@ -3627,27 +3627,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Points:
-  - MaxActorsAtPoint: 1
+  - ActorsOnPoint: []
+    MaxActorsAtPoint: 1
+    OnGround: 0
     Position: {x: -35, y: 15, z: 30}
-  - MaxActorsAtPoint: 1
+  - ActorsOnPoint: []
+    MaxActorsAtPoint: 1
+    OnGround: 0
     Position: {x: -35, y: 15, z: 50}
-  - MaxActorsAtPoint: 1
+  - ActorsOnPoint: []
+    MaxActorsAtPoint: 1
+    OnGround: 0
     Position: {x: -35, y: 15, z: 70}
-  - MaxActorsAtPoint: 1
+  - ActorsOnPoint: []
+    MaxActorsAtPoint: 1
+    OnGround: 0
     Position: {x: 0, y: 15, z: 50}
-  - MaxActorsAtPoint: 1
+  - ActorsOnPoint: []
+    MaxActorsAtPoint: 1
+    OnGround: 0
     Position: {x: 0, y: 15, z: 70}
-  - MaxActorsAtPoint: 1
+  - ActorsOnPoint: []
+    MaxActorsAtPoint: 1
+    OnGround: 0
     Position: {x: 30, y: 15, z: 30}
-  - MaxActorsAtPoint: 1
+  - ActorsOnPoint: []
+    MaxActorsAtPoint: 1
+    OnGround: 0
     Position: {x: 45, y: 15, z: 70}
-  - MaxActorsAtPoint: 1
+  - ActorsOnPoint: []
+    MaxActorsAtPoint: 1
+    OnGround: 0
     Position: {x: 45, y: 15, z: 50}
-  - MaxActorsAtPoint: 1
+  - ActorsOnPoint: []
+    MaxActorsAtPoint: 1
+    OnGround: 0
     Position: {x: 45, y: 15, z: 30}
-  - MaxActorsAtPoint: 1
+  - ActorsOnPoint: []
+    MaxActorsAtPoint: 1
+    OnGround: 0
     Position: {x: 30, y: 15, z: 50}
-  - MaxActorsAtPoint: 1
+  - ActorsOnPoint: []
+    MaxActorsAtPoint: 1
+    OnGround: 0
     Position: {x: 35.5, y: 0.5, z: 67.7}
 --- !u!1 &1993777661
 GameObject:

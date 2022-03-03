@@ -39,7 +39,7 @@ namespace LOK1game.Player
 
         public void OnInput(object sender)
         {
-#if !UNITY_ANDROID
+            if(Input.touchCount > 0) { return; }
 
             switch (CurrentGun.BurstMode)
             {
@@ -56,8 +56,6 @@ namespace LOK1game.Player
                     }
                     break;
             }
-
-#endif
         }
 
         public void Shoot()

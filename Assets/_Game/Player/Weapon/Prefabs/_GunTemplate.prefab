@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5380603937287260056}
   - component: {fileID: 3278967872558127806}
+  - component: {fileID: 1944626184239269819}
   - component: {fileID: 8500376065993678311}
   - component: {fileID: 5380603937287260057}
   m_Layer: 0
@@ -172,7 +173,23 @@ MonoBehaviour:
   data: {fileID: 0}
   muzzleTransform: {fileID: 6719995917898985316}
   sightTransform: {fileID: 5380603937255548029}
+  _shootsFromMuzzle: 1
   _adsSpeed: 8
+  _adsGunPositon: {x: 0, y: 0, z: 0}
+--- !u!114 &1944626184239269819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5380603937287260063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8f00780c349814891dcf4c1af46772, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 25
+  _returnSpeed: 12
 --- !u!95 &8500376065993678311
 Animator:
   serializedVersion: 3

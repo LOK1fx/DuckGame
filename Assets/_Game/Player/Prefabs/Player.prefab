@@ -58,6 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d831871919450346a96bcd67e607e15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mobile: 0
   Tilt: 0
   _sensivity: 50
   _camera: {fileID: 2639441562249833007}

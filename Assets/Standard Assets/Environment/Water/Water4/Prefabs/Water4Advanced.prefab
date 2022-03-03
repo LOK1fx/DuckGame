@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a91e8dd37cdd41efb4859b65aced7a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reflection: {fileID: 11400004}
+  reflection: {fileID: 0}
   waterBase: {fileID: 11400008}
 --- !u!1 &100002
 GameObject:
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a91e8dd37cdd41efb4859b65aced7a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reflection: {fileID: 11400004}
+  reflection: {fileID: 0}
   waterBase: {fileID: 11400008}
 --- !u!1 &100004
 GameObject:
@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a91e8dd37cdd41efb4859b65aced7a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reflection: {fileID: 11400004}
+  reflection: {fileID: 0}
   waterBase: {fileID: 11400008}
 --- !u!1 &100006
 GameObject:
@@ -299,7 +299,6 @@ GameObject:
   - component: {fileID: 400006}
   - component: {fileID: 11400008}
   - component: {fileID: 11400002}
-  - component: {fileID: 11400004}
   - component: {fileID: 11400000}
   m_Layer: 4
   m_Name: Water4Advanced
@@ -355,25 +354,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   specularLight: {fileID: 400012}
---- !u!114 &11400004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4185bc77c7194462ca3b1097ef4a5de0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reflectionMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  reflectSkybox: 1
-  clearColor: {r: 1, g: 1, b: 1, a: 1}
-  reflectionSampler: _ReflectionTex
-  clipPlaneOffset: 0.07
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -510,5 +490,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a91e8dd37cdd41efb4859b65aced7a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reflection: {fileID: 11400004}
+  reflection: {fileID: 0}
   waterBase: {fileID: 11400008}

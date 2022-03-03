@@ -4,6 +4,12 @@ namespace LOK1game.Player
 {
     public class PlayerCamera : MonoBehaviour, IPawnInput
     {
+#if UNITY_EDITOR
+
+        [SerializeField] private bool _mobile = true;
+
+#endif
+
         public float Tilt;
 
         [SerializeField] private float _sensivity = 8f;
@@ -56,8 +62,14 @@ namespace LOK1game.Player
 
         public void OnInput(object sender)
         {
-            if(Input.touchCount >= 1)
+            var x = 0f;
+            var y = 0f;
+
+            if (Input.touchCount >= 1)
             {
+                x = Input.GetTouch(0).deltaPosition.x;
+                y = Input.GetTouch(0).deltaPosition.y;
+
                 foreach (var touch in Input.touches)
                 {
                     if (touch.rawPosition.x < (Screen.currentResolution.width / 2))
@@ -66,9 +78,15 @@ namespace LOK1game.Player
                     }
                 }
             }
+            
 
-            var x = Input.GetAxis("Mouse X");
-            var y = Input.GetAxis("Mouse Y");
+#if UNITY_EDITOR
+            if(!_mobile)
+            {
+                x = Input.GetAxis("Mouse X");
+                y = Input.GetAxis("Mouse Y");
+            }
+#endif
 
             _xRotation += x * (_sensivity * 10) * Time.deltaTime;
             _yRotation -= y * (_sensivity * 10) * Time.deltaTime;
