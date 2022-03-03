@@ -38,7 +38,7 @@ namespace LOK1game.Weapon
             }
 
             sightTransform.localPosition = Vector3.MoveTowards(sightTransform.localPosition, targetPos, Time.deltaTime * _adsSpeed);
-            sightTransform.localRotation = Quaternion.Lerp(sightTransform.localRotation, targetRot, Time.deltaTime * _adsSpeed);
+            sightTransform.localRotation = Quaternion.RotateTowards(sightTransform.localRotation, targetRot, Time.deltaTime * _adsSpeed);
 
             InADS = ads;
         }

@@ -66,6 +66,8 @@ namespace LOK1game.Weapon
             _damage.HitNormal = hit.normal;
             _damage.HitPoint = hit.point;
 
+            Debug.Log(hit.normal);
+
             var gameObject = hit.collider;
 
             if (gameObject.TryGetComponent<IDamagable>(out var damagable))

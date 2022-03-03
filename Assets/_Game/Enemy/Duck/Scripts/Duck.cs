@@ -32,7 +32,10 @@ namespace LOK1game
         {
             OnDie?.Invoke();
 
-            gameObject.SetActive(false);
+            DuckMovement.enabled = false;
+            enabled = false;
+
+            Destroy(gameObject, 8f);
         }
     }
 }

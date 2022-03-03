@@ -17,6 +17,19 @@ namespace LOK1game.World
             {
                 floater.EnterWater(this);
 
+                if(floater.Rigidbody.velocity.y <= -3f)
+                {
+                    if(TryGetComponent<BulletImpactEffect>(out var effect))
+                    {
+                        var damage = new Damage(0);
+
+                        damage.HitPoint = floater.transform.position;
+                        damage.HitNormal = Vector3.up;
+                        
+                        effect.TakeDamage(damage);
+                    }
+                }
+
                 OnObjectEnter?.Invoke(floater.gameObject);
 
                 Debug.Log($"Water enter: {floater.gameObject.name}");
