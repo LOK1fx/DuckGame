@@ -58,15 +58,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d831871919450346a96bcd67e607e15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mobile: 0
   Tilt: 0
-  _sensivity: 50
+  _cameraRotateSpeed: 260
+  _sensivity: 2
   _camera: {fileID: 2639441562249833007}
   _cameraTransform: {fileID: 2639441562097676139}
-  _maxRightViewAngle: 360
-  _maxLeftViewAngle: 360
+  _maxRightViewAngle: 45
+  _maxLeftViewAngle: 45
   _maxUpViewAngle: 80
-  _maxDownViewAngle: 80
+  _maxDownViewAngle: 45
   _defaultFov: 60
   _fovChangeSpeed: 150
   _cameraOffsetResetSpeed: 1

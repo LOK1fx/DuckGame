@@ -9,8 +9,6 @@ namespace LOK1game.Weapon
         public event UnityAction OnEquip;
 
         [Space]
-        [SerializeField] private bool _shootsFromMuzzle = true;
-        [SerializeField] private float _adsSpeed = 8f;
         [SerializeField] private Vector3 _adsGunPositon;
 
         private Vector3 _defaultGunPosition;
@@ -25,27 +23,42 @@ namespace LOK1game.Weapon
             _defaultGunRotation = sightTransform.localRotation;
         }
 
-        private void Update()
+        public override void Equip(Player.Player player)
         {
-            var targetPos = _adsGunPositon;
-            var targetRot = Quaternion.identity;
-            var ads = Input.GetButton("Fire2");
+            OnEquip?.Invoke();
+        }
 
-            if(!ads)
+        public void SetAdsStatus(Player.Player player, bool ads)
+        {
+            var targetPos = Vector3.zero;
+            var targetRot = Quaternion.identity;
+
+            if(ads)
+            {
+                var cameraRot = player.PlayerCamera.GetCameraTransform().localRotation.eulerAngles;
+
+                targetPos = _adsGunPositon;
+                targetRot = Quaternion.Euler(cameraRot.x, cameraRot.y, 0f);
+
+
+                RotateSight(Quaternion.identity);
+            } 
+            else
             {
                 targetPos = _defaultGunPosition;
-                targetRot = _defaultGunRotation;
-            }
 
-            sightTransform.localPosition = Vector3.MoveTowards(sightTransform.localPosition, targetPos, Time.deltaTime * _adsSpeed);
-            sightTransform.localRotation = Quaternion.RotateTowards(sightTransform.localRotation, targetRot, Time.deltaTime * _adsSpeed);
+                RotateSight(_defaultGunRotation);
+            }
+            
+            sightTransform.localPosition = Vector3.MoveTowards(sightTransform.localPosition, targetPos, Time.deltaTime * data.AdsSpeed);
+            transform.localRotation = targetRot;
 
             InADS = ads;
         }
 
-        public override void Equip(Player.Player player)
+        private void RotateSight(Quaternion target)
         {
-            OnEquip?.Invoke();
+            sightTransform.localRotation = Quaternion.RotateTowards(sightTransform.localRotation, target, Time.deltaTime * data.AdsSpeed);
         }
 
         public override void Shoot(Player.Player player)
@@ -58,18 +71,23 @@ namespace LOK1game.Weapon
                 {
                     var camera = player.PlayerCamera.GetCameraTransform();
                     var projectilePos = muzzleTransform.position;
+                    var direction = muzzleTransform.forward;
 
-                    if(!_shootsFromMuzzle)
+                    if (!data.ShootsFromMuzzle)
                     {
                         projectilePos = camera.position;
+                        direction = camera.forward;
                     }
 
                     var projectile = Instantiate(data.ProjectilePrefab, projectilePos, Quaternion.identity);
-                    var direction = camera.forward;
 
                     if (i != 0)
                     {
-                        direction += GetBloom(camera);
+                        direction += GetBloom(muzzleTransform);
+                    }
+                    else
+                    {
+                        direction.z = data.ShootDistance;
                     }
 
                     var damage = new Damage(data.Damage, player);

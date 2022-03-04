@@ -4,14 +4,9 @@ namespace LOK1game.Player
 {
     public class PlayerCamera : MonoBehaviour, IPawnInput
     {
-#if UNITY_EDITOR
-
-        [SerializeField] private bool _mobile = true;
-
-#endif
-
         public float Tilt;
 
+        [SerializeField] private float _cameraRotateSpeed = 160f;
         [SerializeField] private float _sensivity = 8f;
         [SerializeField] private Camera _camera;
         [SerializeField] private Transform _cameraTransform;
@@ -35,17 +30,33 @@ namespace LOK1game.Player
         private float _xRotation;
         private float _yRotation;
 
+        private Vector3 _lastMousePosition;
+
         private void Start()
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            if(Application.isMobilePlatform)
+            {
+                _lastMousePosition = Vector3.zero;
+            }
+            else
+            {
+                _lastMousePosition = Input.mousePosition;
+            }
 
             SetFov(_defaultFov);
         }
 
         private void Update()
         {
-            _cameraTransform.localRotation = Quaternion.Euler(_yRotation, _xRotation, Tilt);
+            var targetRot = Quaternion.identity;
+
+            if(Input.GetButton("Fire1"))
+            {
+                targetRot = Quaternion.Euler(_yRotation, _xRotation, Tilt);
+            }
+
+            _cameraTransform.localRotation = Quaternion.RotateTowards(_cameraTransform.localRotation, targetRot, Time.deltaTime * _cameraRotateSpeed);
+
             _camera.transform.localPosition = Vector3.MoveTowards(_camera.transform.localPosition, _cameraLerpOffset, Time.deltaTime * _cameraOffsetResetSpeed);
             _cameraLerpOffset = Vector3.MoveTowards(_cameraLerpOffset, Vector3.zero, Time.deltaTime * _cameraOffsetResetSpeed);
         }
@@ -62,40 +73,45 @@ namespace LOK1game.Player
 
         public void OnInput(object sender)
         {
-            var x = 0f;
-            var y = 0f;
-
-            if (Input.touchCount >= 1)
+            if(Input.GetButtonUp("Fire1"))
             {
-                x = Input.GetTouch(0).deltaPosition.x;
-                y = Input.GetTouch(0).deltaPosition.y;
+                _xRotation = 0f;
+                _yRotation = 0f;
+            }
 
-                foreach (var touch in Input.touches)
+            if(Input.GetButton("Fire1"))
+            {
+                var x = 0f;
+                var y = 0f;
+
+                if (!Application.isMobilePlatform)
                 {
-                    if (touch.rawPosition.x < (Screen.currentResolution.width / 2))
+                    x = Input.GetAxis("Mouse X");
+                    y = Input.GetAxis("Mouse Y");
+                }
+                else
+                {
+                    if (Input.touchCount >= 1)
                     {
-                        return;
+                        x = Input.GetTouch(0).deltaPosition.x;
+                        y = Input.GetTouch(0).deltaPosition.y;
                     }
                 }
+
+                _xRotation += x * GetSensivityMultiplier();
+                _yRotation -= y * GetSensivityMultiplier();
+
+                _xRotation = Mathf.Clamp(_xRotation, -_maxLeftViewAngle, _maxRightViewAngle);
+                _yRotation = Mathf.Clamp(_yRotation, -_maxUpViewAngle, _maxDownViewAngle);
+
+                _xRotation = ThreehoundredToZero(_xRotation);
+                _yRotation = ThreehoundredToZero(_yRotation);
             }
-            
+        }
 
-#if UNITY_EDITOR
-            if(!_mobile)
-            {
-                x = Input.GetAxis("Mouse X");
-                y = Input.GetAxis("Mouse Y");
-            }
-#endif
-
-            _xRotation += x * (_sensivity * 10) * Time.deltaTime;
-            _yRotation -= y * (_sensivity * 10) * Time.deltaTime;
-
-            _xRotation = Mathf.Clamp(_xRotation, -_maxLeftViewAngle, _maxRightViewAngle);
-            _yRotation = Mathf.Clamp(_yRotation, -_maxUpViewAngle, _maxDownViewAngle);
-
-            _xRotation = ThreehoundredToZero(_xRotation);
-            _yRotation = ThreehoundredToZero(_yRotation);
+        private float GetSensivityMultiplier()
+        {
+            return (_sensivity * 10) * Time.deltaTime;
         }
 
         private float ThreehoundredToZero(float value)

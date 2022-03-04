@@ -15,14 +15,15 @@ MonoBehaviour:
   Damage: 10
   StartBulletForce: 400
   BulletsPerShoot: 5
-  FireRate: 3
+  FireRate: 4.6
   ShootDistance: 550
+  ShootsFromMuzzle: 1
   BurstMode: 0
-  Bloom: 6
+  Bloom: 4
   BloomXMultiplier: 1
-  BloomYMultiplier: 0.6
+  BloomYMultiplier: 1
   ShootFovChange: 0.5
-  ShotCameraOffset: {x: 0, y: -0.01, z: -0.02}
+  ShotCameraOffset: {x: 0, y: 0, z: -0.02}
   ProjectilePrefab: {fileID: 5683537475582720638, guid: 847c12c2102d4674895c21308ea5bb65,
     type: 3}
   GunPrefab: {fileID: 5429283703242786059, guid: 18d7f30a888c55b45b56582db91a380c,

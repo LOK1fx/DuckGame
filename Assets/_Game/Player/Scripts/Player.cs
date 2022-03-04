@@ -1,9 +1,8 @@
 using UnityEngine;
-using LOK1game;
 
 namespace LOK1game.Player
 {
-    [RequireComponent(typeof(PlayerCamera))]
+    [RequireComponent(typeof(PlayerCamera), typeof(PlayerWeapon))]
     public class Player : Actor, IPawnInput
     {
         public PlayerCamera PlayerCamera { get; private set; }
@@ -11,6 +10,8 @@ namespace LOK1game.Player
 
         private void Awake()
         {
+            Application.targetFrameRate = 120;
+
             PlayerCamera = GetComponent<PlayerCamera>();
             PlayerWeapon = GetComponent<PlayerWeapon>();
 
@@ -52,7 +53,6 @@ namespace LOK1game.Player
         {
             var camera = PlayerCamera;
 
-            //camera.SetFov(camera.GetCurrentFov() + PlayerWeapon.CurrentGun.ShootFovChange);
             camera.AddCameraOffset(PlayerWeapon.CurrentGun.ShotCameraOffset);
         }
     }

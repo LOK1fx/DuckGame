@@ -57,6 +57,8 @@ namespace LOK1game.World
 
         private void OnDrawGizmos()
         {
+            if(_rigidbody == null) { return; }
+
             var pos = transform.position + _rigidbody.velocity;
 
             Gizmos.DrawCube(pos, _collider.size);

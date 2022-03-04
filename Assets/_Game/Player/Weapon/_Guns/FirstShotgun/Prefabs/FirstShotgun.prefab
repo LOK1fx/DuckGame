@@ -386,7 +386,17 @@ PrefabInstance:
     - target: {fileID: 3278967872558127806, guid: bb38e60e70042684f9a34e1c25df0117,
         type: 3}
       propertyPath: _adsSpeed
-      value: 2
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3278967872558127806, guid: bb38e60e70042684f9a34e1c25df0117,
+        type: 3}
+      propertyPath: _adsGunOffset.x
+      value: -0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3278967872558127806, guid: bb38e60e70042684f9a34e1c25df0117,
+        type: 3}
+      propertyPath: _adsGunOffset.y
+      value: -0.85
       objectReference: {fileID: 0}
     - target: {fileID: 3278967872558127806, guid: bb38e60e70042684f9a34e1c25df0117,
         type: 3}
@@ -559,7 +569,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 22100000, guid: cf3bf58264738654b80774816f646659,
         type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1944626184239269819, guid: bb38e60e70042684f9a34e1c25df0117, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bb38e60e70042684f9a34e1c25df0117, type: 3}
 --- !u!1 &3202681583651199018 stripped
 GameObject:

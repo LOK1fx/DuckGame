@@ -5,10 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Lake.unity
     guid: a03b892736b38ed4aaae27a88da589f3
   - enabled: 0
     path: Assets/Scenes/TestRoom.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/TrainingRange.unity
+    guid: b04bae2590a2aef4db88cc311730d351
   m_configObjects: {}

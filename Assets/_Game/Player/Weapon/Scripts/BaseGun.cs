@@ -24,13 +24,13 @@ namespace LOK1game.Weapon
 
         public abstract void Equip(Player.Player player);
 
-        protected Vector3 GetBloom(Transform playerCamera)
+        protected Vector3 GetBloom(Transform firePoint)
         {
-            var bloom = playerCamera.position + playerCamera.forward * data.ShootDistance;
+            var bloom = firePoint.position + firePoint.forward * data.ShootDistance;
 
-            bloom += CalculateBloom(playerCamera.up) * data.BloomYMultiplier;
-            bloom += CalculateBloom(playerCamera.right) * data.BloomXMultiplier;
-            bloom -= playerCamera.position;
+            bloom += CalculateBloom(firePoint.up) * data.BloomYMultiplier;
+            bloom += CalculateBloom(firePoint.right) * data.BloomXMultiplier;
+            bloom -= firePoint.position;
 
             return bloom.normalized;
         }

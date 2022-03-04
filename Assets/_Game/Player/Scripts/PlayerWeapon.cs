@@ -39,27 +39,18 @@ namespace LOK1game.Player
 
         public void OnInput(object sender)
         {
-            if(Input.touchCount > 0) { return; }
-
-            switch (CurrentGun.BurstMode)
+            if (Input.GetButtonDown("Fire2") && Input.GetButton("Fire1"))
             {
-                case GunBurstMode.Semi:
-                    if (Input.GetButtonDown("Fire1"))
-                    {
-                        Shoot();
-                    }
-                    break;
-                case GunBurstMode.Auto:
-                    if (Input.GetButton("Fire1"))
-                    {
-                        Shoot();
-                    }
-                    break;
+                Shoot();
             }
+
+            CurrentGunObject.SetAdsStatus(_player, Input.GetButton("Fire1"));
         }
 
         public void Shoot()
         {
+            if(CurrentGunObject == null) { return; }
+
             CurrentGunObject.Shoot(_player);
         }
 

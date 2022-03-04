@@ -50,7 +50,7 @@ MonoBehaviour:
   _hitableLayer:
     serializedVersion: 2
     m_Bits: 400
-  _lifeTime: 2.6
+  _lifeTime: 2
   _bulletHolePrefab: {fileID: 0}
 --- !u!114 &-4655765397988166312
 MonoBehaviour:
@@ -82,7 +82,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 2
+  m_CollisionDetection: 0
 --- !u!1 &7620155012398376199
 GameObject:
   m_ObjectHideFlags: 0
