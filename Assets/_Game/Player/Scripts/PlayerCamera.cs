@@ -43,6 +43,9 @@ namespace LOK1game.Player
                 _lastMousePosition = Input.mousePosition;
             }
 
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+
             SetFov(_defaultFov);
         }
 
@@ -111,7 +114,14 @@ namespace LOK1game.Player
 
         private float GetSensivityMultiplier()
         {
-            return (_sensivity * 10) * Time.deltaTime;
+            var multiplier = 20f;
+
+            if(Application.isMobilePlatform)
+            {
+                multiplier = 1f;
+            }
+
+            return (_sensivity * multiplier) * Time.deltaTime;
         }
 
         private float ThreehoundredToZero(float value)

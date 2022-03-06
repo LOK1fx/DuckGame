@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: FirstShotgun
   m_EditorClassIdentifier: 
   Damage: 10
-  StartBulletForce: 400
+  StartBulletForce: 455
   BulletsPerShoot: 5
   FireRate: 4.6
   ShootDistance: 550
+  AdsSpeed: 1.2
   ShootsFromMuzzle: 1
   BurstMode: 0
-  Bloom: 4
+  Bloom: 2
   BloomXMultiplier: 1
   BloomYMultiplier: 1
   ShootFovChange: 0.5

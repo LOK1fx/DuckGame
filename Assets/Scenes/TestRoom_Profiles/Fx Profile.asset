@@ -64,8 +64,8 @@ MonoBehaviour:
     overrideState: 0
     value: 0
   saturation:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 15
   brightness:
     overrideState: 0
     value: 0
@@ -73,8 +73,8 @@ MonoBehaviour:
     overrideState: 1
     value: 0.2
   contrast:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 5
   mixerRedOutRedIn:
     overrideState: 0
     value: 100
@@ -104,7 +104,7 @@ MonoBehaviour:
     value: 100
   lift:
     overrideState: 1
-    value: {x: 0.83679736, y: 0.919093, z: 1, w: 0.010493255}
+    value: {x: 0.87812185, y: 0.90175354, z: 1, w: 0.052465975}
   gamma:
     overrideState: 0
     value: {x: 1, y: 1, z: 1, w: 0}
@@ -1371,13 +1371,13 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 20
+    value: 30
   threshold:
     overrideState: 1
     value: 1.15
   softKnee:
-    overrideState: 0
-    value: 0.5
+    overrideState: 1
+    value: 0.55
   clamp:
     overrideState: 1
     value: 20
@@ -1385,11 +1385,11 @@ MonoBehaviour:
     overrideState: 0
     value: 7
   anamorphicRatio:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: -0.25
   color:
-    overrideState: 0
-    value: {r: 1, g: 1, b: 1, a: 1}
+    overrideState: 1
+    value: {r: 1.0349122, g: 1.0596418, b: 1.1486983, a: 1}
   fastMode:
     overrideState: 1
     value: 1
@@ -1399,4 +1399,4 @@ MonoBehaviour:
     defaultState: 1
   dirtIntensity:
     overrideState: 1
-    value: 25
+    value: 5

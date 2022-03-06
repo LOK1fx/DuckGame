@@ -39,5 +39,10 @@ namespace LOK1game.Weapon
         {
             return Random.Range(-data.Bloom * 10f, data.Bloom * 10f) * direction;
         }
+
+        public Transform GetSightTransform()
+        {
+            return sightTransform;
+        }
     }
 }

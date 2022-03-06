@@ -5,13 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Lake.unity
-    guid: a03b892736b38ed4aaae27a88da589f3
-  - enabled: 0
-    path: Assets/Scenes/TestRoom.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Initialize.unity
+    guid: 8666750f5053ec042b2e9b4eb139c597
+  - enabled: 1
+    path: Assets/Scenes/MainPlayerMenu.unity
+    guid: 7eec0c7d4c0344f4ab44a33b59010bdc
   - enabled: 1
     path: Assets/Scenes/TrainingRange.unity
     guid: b04bae2590a2aef4db88cc311730d351
+  - enabled: 1
+    path: Assets/Scenes/Lake.unity
+    guid: a03b892736b38ed4aaae27a88da589f3
+  - enabled: 1
+    path: Assets/Scenes/TestRoom.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}

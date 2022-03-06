@@ -10,13 +10,14 @@ namespace LOK1game.Player
 
         private void Awake()
         {
-            Application.targetFrameRate = 120;
+            //t
+            if (Application.isMobilePlatform)
+            {
+                Application.targetFrameRate = 120;
+            }        
 
             PlayerCamera = GetComponent<PlayerCamera>();
             PlayerWeapon = GetComponent<PlayerWeapon>();
-
-            PlayerWeapon.OnEquip += OnGunEquip;
-            PlayerWeapon.OnDequip += OnGunDequip;
         }
 
         private void Update()
@@ -37,23 +38,6 @@ namespace LOK1game.Player
         {
             PlayerCamera.OnInput(this);
             PlayerWeapon.OnInput(this);
-        }
-
-        private void OnGunDequip(Weapon.Gun gun)
-        {
-            gun.OnShoot -= OnGunShoot;
-        }
-
-        private void OnGunEquip(Weapon.Gun gun)
-        {
-            gun.OnShoot += OnGunShoot;
-        }
-
-        private void OnGunShoot()
-        {
-            var camera = PlayerCamera;
-
-            camera.AddCameraOffset(PlayerWeapon.CurrentGun.ShotCameraOffset);
         }
     }
 }

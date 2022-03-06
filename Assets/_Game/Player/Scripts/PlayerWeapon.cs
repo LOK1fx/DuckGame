@@ -52,6 +52,8 @@ namespace LOK1game.Player
             if(CurrentGunObject == null) { return; }
 
             CurrentGunObject.Shoot(_player);
+
+            _player.PlayerCamera.AddCameraOffset(CurrentGun.ShotCameraOffset);
         }
 
         public void Equip(GunData gunData)

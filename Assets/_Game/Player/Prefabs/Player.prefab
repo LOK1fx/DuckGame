@@ -59,8 +59,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tilt: 0
-  _cameraRotateSpeed: 260
-  _sensivity: 2
+  _cameraRotateSpeed: 200
+  _sensivity: 1.8
   _camera: {fileID: 2639441562249833007}
   _cameraTransform: {fileID: 2639441562097676139}
   _maxRightViewAngle: 45

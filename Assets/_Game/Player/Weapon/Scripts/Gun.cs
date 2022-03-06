@@ -16,7 +16,6 @@ namespace LOK1game.Weapon
 
         private float _timeToNextShoot;
 
-
         private void Start()
         {
             _defaultGunPosition = sightTransform.localPosition;
@@ -58,7 +57,7 @@ namespace LOK1game.Weapon
 
         private void RotateSight(Quaternion target)
         {
-            sightTransform.localRotation = Quaternion.RotateTowards(sightTransform.localRotation, target, Time.deltaTime * data.AdsSpeed);
+            sightTransform.localRotation = Quaternion.RotateTowards(sightTransform.localRotation, target, Time.deltaTime * (data.AdsSpeed * 10f));
         }
 
         public override void Shoot(Player.Player player)
@@ -84,10 +83,6 @@ namespace LOK1game.Weapon
                     if (i != 0)
                     {
                         direction += GetBloom(muzzleTransform);
-                    }
-                    else
-                    {
-                        direction.z = data.ShootDistance;
                     }
 
                     var damage = new Damage(data.Damage, player);
